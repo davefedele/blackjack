@@ -18,8 +18,10 @@ class window.AppView extends Backbone.View
       @$el.find('.button').attr('disabled', 'true')
       @model.winner()
       @renderWinner()
-    @model.get('dealerHand').on 'stop': (hand) =>
-      console.log hand
+    @model.get('dealerHand').on 'stop': =>
+      @model.winner()
+      @renderWinner()
+      console.log(@model.get('winner'))
     @render()
 
   render: ->

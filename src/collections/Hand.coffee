@@ -12,7 +12,7 @@ class window.Hand extends Backbone.Collection
       @trigger 'bust', @
 
   dealerHit: ->
-    if @correctScore < 17
+    if @correctScore() < 17
       @hit()
       @dealerHit()
     else
@@ -22,7 +22,6 @@ class window.Hand extends Backbone.Collection
     @trigger 'stand', @
     @at(0).flip()
     @dealerHit()
-
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -37,10 +36,19 @@ class window.Hand extends Backbone.Collection
 
   correctScore: ->
     scores = @scores()
+    if @isDealer
+      if not @at(0).get('revealed')
+        if @hasAce()
+          if @at(1).get('value') is 1
+            11
+          else
+            @at(1).get 'value'
+        else
+          @at(1).get 'value'
     if @hasBlackjack()
       21
     else
-      if @hasAce() and scores[0] < 10 then scores[1] else scores[0]
+      if @hasAce() and scores[0] <= 10 then scores[1] else scores[0]
 
   hasBlackjack: ->
     isBlackjack = @scores()[0] is 21 or @scores()[1] is 21
