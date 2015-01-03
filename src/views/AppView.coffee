@@ -21,7 +21,6 @@ class window.AppView extends Backbone.View
     @model.get('dealerHand').on 'stop': =>
       @model.winner()
       @renderWinner()
-      console.log(@model.get('winner'))
     @render()
 
   render: ->

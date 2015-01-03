@@ -4,7 +4,9 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
-    @add(@deck.pop())
+    card = @deck.pop()
+    @add(card)
+    card
 
   playerHit: ->
     @hit()
