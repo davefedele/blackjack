@@ -30,4 +30,4 @@ class window.AppView extends Backbone.View
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
 
   renderWinner: ->
-    @$el.find('.winner').text("Winner is #{@model.get('winner')}")
+    @$el.find('.winner').text("The #{@model.get('winner')} has won")

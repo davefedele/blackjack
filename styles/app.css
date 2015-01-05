@@ -1,3 +1,27 @@
+text {
+  font: bold 48px monospace;
+}
+
+body{
+  background: url('../img/tile-table.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h2{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px gray;
+}
+
+.winner {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px gray; 
+}
+
 .card {
   float: left;
   border: solid 1px black;
@@ -5,12 +29,32 @@
   border-radius: 5px;
   height: 140px;
   margin-right: 20px;
+  width: 120px;
+  height: 167px;
 }
 
 .covered {
-  background-color: black;
+  background-image: url('../img/card-back.png');
 }
 
 .hand {
   overflow: auto;
+}
+
+.hit-button{
+  background-color: red;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.stand-button {
+  background-color: green;
+  border-radius: 10px;
+  color: white;
+  margin: auto 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
